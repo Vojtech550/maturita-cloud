@@ -1,0 +1,10 @@
+[core]
+	repositoryformatversion = 0
+	filemode = false
+	bare = false
+	logallrefupdates = true
+	symlinks = false
+	ignorecase = true
+[remote "Vojtech550"]
+	url = https://github.com/Vojtech550/skola-mapy
+	fetch = +refs/heads/*:refs/remotes/Vojtech550/*
