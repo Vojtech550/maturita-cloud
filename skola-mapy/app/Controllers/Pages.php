@@ -103,6 +103,7 @@ class Pages extends BaseController
     }
         public function school_edit($id){
             $skola = new Skola();
+            $data['title'] = 'Upravit školu';
             $data['select_mesto'] = $skola->select_mesto();
             $data['row'] = $skola->find($id);            
             echo view('templates/header', $data);
