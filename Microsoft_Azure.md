@@ -9,7 +9,7 @@
 Klíčové rozdíly oproti Amazon Web Services ([zdroj 2](https://www.educba.com/aws-vs-azure/)):
 - AWS i Azure využívají stejné modely, avšak Azure si účtuje za miutu, čož poskytuje přesnější cenový model
 - U AWS EC2 si uživatelé mohou vybrat vlastní předkonfigurovaný obraz systému, u AWS si nejprve musí uživatelé vybrat disk nakonfigurovaný třetí stranou
-- výbr z různých úrovní zabezpečení a integraci Microsoft programů
+- výběr z různých úrovní zabezpečení a integraci Microsoft programů
 
 ## Klíčové rozdíly mezi Amazon Web Services a Microsoft Azure
 
@@ -28,7 +28,7 @@ Klíčové rozdíly oproti Amazon Web Services ([zdroj 2](https://www.educba.com
 
 - Podrobný seznam služeb a většiny rozdílů najdete přehledně na https://www.guru99.com/azure-vs-aws.html.
 
-## 1 Vytvoření Linuxové VM a statický web, web nad frameworkem CI4
+## Vytvoření Linuxové VM a statický web, web nad frameworkem CI4
 
 - [zdroj 3](https://www.youtube.com/watch?v=iUaTq06m26g)
 

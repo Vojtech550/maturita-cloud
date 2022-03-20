@@ -12,7 +12,9 @@
 
 - Cloudy a jejich služby mají jiné názvy, Google ale udělal přehlednou tabulku, rozdíl mezi AWS a Google Cloud.
 
-[zdroj](https://kinsta.com/blog/google-cloud-vs-aws/)
+[Obrázek - zdroj](https://kinsta.com/blog/google-cloud-vs-aws/)
+
+Celá tabulka k dostání potom [zde](https://cloud.google.com/free/docs/aws-azure-gcp-service-comparison)
 
 |Feature|Amazon EC2|Compute Engine|
 |:---:|:---:|:---:|
@@ -41,9 +43,11 @@
 - Doporučuji zhlédnout, video obsahuje přehled hlavních bodů, včetně tzv. Responsibility modelu, co si zákazník musí hlídat sám a co za něj udělá cloud provider.
 
 ## Vytvoření Linuxové VM a statický web, web nad frameworkem CI4
+- Důležitá informace na začátek: Narozdíl od AWS a Azure, musíte vypnout instance, jinak bude odebírat z vašeho kreditu $300
 - Pro vytváření virtuálních strojů nám poslouží služba Compute Engine (v AWS EC2, Azure - Virtual Machine)
 
 - Google zde vsází na jednoduchost, lze i libovolně a intuitivně měnit počet jader CPU a další.
+- Stejně jak u Microsoftu zde máte přehled ceny, která se bude měsíčně strhávat
 
 ![Compute Engine - vytváření stroje](img_gcp/compute_engine.png)
 
@@ -55,5 +59,39 @@
 
 ![Compute Engine - SSH](img_gcp/compute_engine_ssh.png)
 
-- K připojení potřebujeme Google Cloud CLI, který stáhneme zde: https://dl.google.com/dl/cloudsdk/channels/rapid/GoogleCloudSDKInstaller.exe
+- Připojení zde se provádí jinak, než u Azure a AWS, který dá klíč hned po vytvoření. 
+1. Musíme nejprve vygenerovat pár klíčů, zde: https://cloud.google.com/compute/docs/connect/create-ssh-keys#windows-10-or-later
+- příkaz poté vložíme do příkazového řádku, ukázka příkazu (lze přímo upravovat na stránce):
+
+![ssh cmd](img_gcp/ssh_cmd.png)
+
+Druhou možností je využít PuTTYgen key generator, kliknout na generate a v kolonce `Key comment` zadat své jméno. Potom zkopírovat Public key.
+
+
+### Povolení SSH připojení
+Pokud jsme již dřívě neprovedli, musíme povolit připojení ve Firewall.
+
+![]
+
+### Přidávání klíče
+Zde už je to velice jednoduché. Přejdeme do detailů našeho stroje:
+
+![VM detail](img_gcp/VM_detail.png)
+
+kliknemena edit:
+
+![VM edit](img_gcp/VM_edit.png)
+
+- Sjedeme dolů a najdeme kategorii SSH keys a klikneme na Add Item, zde vložíme náš text klíče.
+- zde vložíme klíč z `.pub` formátu, stačí otevřít v textovém editoru.
+
+![SSH key - přidání](img_gcp/ssh_key_add.png)
+
+![SSH key - ukázka](img_gcp/ssh_key.png)
+
+- Poté stačí postupovat jak v mém návodu v AWS, kde mám PuTTY (připojení přes puTTY a přidání klíče do PuTTY)
+- K připojení použijte pouze IP adresu, nezadávejte adesu ve tvaru `užviatelské_jméno@IP_adresa_serveru`, ale zadejte ve tvaru `IP_adresa_serveru`. Z neznámého důvodu nebere přes PuTTY uživatelské jméno.
+
+![Připojení přes puTTY](img_gcp/VM_pripojeni_ssh.png)
+
 
