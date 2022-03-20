@@ -1,4 +1,4 @@
-# 1 CLOUDOVÉ SLUŽBY OBECNĚ
+# 1 Seznámení s cloudem
 
 ## 1.1 Definice a příklad z praxe
 
@@ -38,11 +38,16 @@ Jedním z příkladů aplikace na cloudové službě je provozovat aplikaci urč
 **Infrastruktura jako služba (IaaS)**
    - Tento model poskytuje kompletní IT řešení firmám. Výpočetní technologie (cloud computing), úložiště, síťové a další prostředky, kde spotřebitel nasadí a zprovozní vlastní aplikaci. Příklady: Amazon EC2, Windows Azure, Google Compute Engine
 
-### 1.2.3 Výhody a nevýhody cloudových služeb
+**Funkce jako služba (FaaS)**
+   - FaaS se často pozná a spojuje se slovem „serverless,“ tedy bez serveru. To znamená, že ke spuštění služby nepotřebujeme server a běží nezávisle bez uživatelského prostředí. Umožňuje aplikace spouštět pomocí kontejnerů a vývojář se nemusí starat o další věci. Jedním z příkladů může být AWS Lambda, výpočetní služba bez serveru, která slouží ke spouštění kódu dalších aplikací.
+
+### 1.3	Výhody a nevýhody cloudových služeb
+
+- Mezi hlavní výhody patří škálovatelnost, díky které si můžeme navyšovat či snižovat kolik RAM, jaké CPU a další parametry bude náš stroj, na kterém aplikace poběží. Toto u serveru, který bychom vlastnili fyzicky není možné. Vše bychom museli zaplatit předem a brát v potaz další kapacitní maxima, kterých provoz dosáhne. Další výhodou je, rychlost spouštění služeb. K založení virtuálního stroje potřebujeme jen pár minut. Platíme jen za to, co využíváme, takže pokud vypneme server, neplatíme nic. K datům můžeme přistupovat z libovolného místa. Ušetříme i na zařízeních, které máme, jelikož pokud se nějaké pokazí, vyměníme za druhé a opět k němu můžeme přistoupit. Co se týče serverů, ty se dají naklonovat čímž zajistíme bez výpadkový provoz služby.
+- Cloud má ale i své nevýhody, a to, že nemáme přístup k fyzickému serveru a navíc nemůžeme vědět, kdo ho s námi sdílí a kde se přesně nachází. Navíc data nemáme pod kontrolou, pokud tedy nepracujeme s hybridním cloudem.
 
 - Obsah
   - [Amazon Web Services - Základní nastavení účtu](AWS_nastaveni.md)
   - [virtuální stroj v AWS](AWS_navod_VM.md)
   - [Statický web v S3 Bucket](AWS_navod_static_website.md)
-  - [Amazon Web Services - návod 3]()
-  - [Amazon Web Services - návod 4]()
+  - [Návod zprovoznění CMS Wordpress](AWS_navod_wordpress.md)
