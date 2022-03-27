@@ -1,20 +1,20 @@
 # Google Cloud Platform
 
-[zdroje](https://www.youtube.com/watch?v=h8fhcmLHsEI)
-
 - poprvé založeno v roce 2008
 - využívá open-source služeb, které jsou navzájem propojené
 - Google je 3. největší lídrem v cloudu jako IaaS (Infrastracture as Service)
 - Jako druhý nejmladší z rodiny cloudů má 29 regionů, 88 zón viz. [aktuální rozmístění služeb](https://cloud.google.com/about/locations)
 
-[zdroj obrázku](https://kinsta.com/wp-content/uploads/2020/12/Gartner-Magic-Quadrant.png)
-![magický čtverec](https://kinsta.com/wp-content/uploads/2020/12/Gartner-Magic-Quadrant.png)
+[Využité zdroje](https://www.youtube.com/watch?v=h8fhcmLHsEI)
+
+[Obrázek - zdroj](https://kinsta.com/wp-content/uploads/2020/12/Gartner-Magic-Quadrant.png)
+![magický čtverec](img_gcp/Gartner-Magic-Quadrant.png)
 
 - Cloudy a jejich služby mají jiné názvy, Google ale udělal přehlednou tabulku, rozdíl mezi AWS a Google Cloud.
 
-[Obrázek - zdroj](https://kinsta.com/blog/google-cloud-vs-aws/)
+Zdroj obrázku: https://kinsta.com/blog/google-cloud-vs-aws/
 
-Celá tabulka k dostání potom [zde](https://cloud.google.com/free/docs/aws-azure-gcp-service-comparison)
+Celá tabulka k dostání potom zde: https://cloud.google.com/free/docs/aws-azure-gcp-service-comparison
 
 |Feature|Amazon EC2|Compute Engine|
 |:---:|:---:|:---:|
@@ -37,7 +37,9 @@ Celá tabulka k dostání potom [zde](https://cloud.google.com/free/docs/aws-azu
 |:---|:---:|:---:|:---:|
 |model placení|hodinový|minutový|sekundový|
 |Podle rozšíření a cen|nejstarší na trhu s nejrozšířenějšími možnostmi - nejdražší|Nejmladší, ale má relativně nízké ceny + $200 kredit|nejnižší ceny na trhu, ale méně rozšířený než AWS a Azure + $300 kredit zdarma|
-|Slevy - Virtual Machine|Rezerované instance za běhu(např. na 1, nebo 3 roky)|Rezervované instance (1-3 roky až 70% sleva) [Commited use discounts)](https://cloud.google.com/compute/docs/instances/signing-up-committed-use-discounts)|Rezerované instance|
+|Slevy - Virtual Machine|Rezerované instance za běhu(např. na 1, nebo 3 roky)|Rezervované instance (1-3 roky až 70% sleva)|Rezerované instance|
+
+Google Cloud Platform více o slevách (Commited use discounts): https://cloud.google.com/compute/docs/instances/signing-up-committed-use-discounts
 
 - Další slevy, které mohou tito tři lídři poskytnout u virtuálních strojů jsou i slevy, které se můžou vyšplhat až k 90%. Má to ale háček, instance můžou být smazány/jejich disky v případě, že poskytovatel potřebuje kapacitu pro prémiové služby. Více informací s kompletním přehledem na: https://www.youtube.com/watch?v=KkKcaFp0z1s
 - Doporučuji zhlédnout, video obsahuje přehled hlavních bodů, včetně tzv. Responsibility modelu, co si zákazník musí hlídat sám a co za něj udělá cloud provider.
@@ -94,4 +96,10 @@ kliknemena edit:
 
 ![Připojení přes puTTY](img_gcp/VM_pripojeni_ssh.png)
 
-
+## Navigace:
+  - [Cloudové služby obecně](Cloudove_sluzby_obecne.md)
+  - [Amazon Web Services - Základní nastavení účtu](AWS_nastaveni.md)
+  - [Virtuální stroj v AWS](AWS_navod_VM.md)
+  - [Statický web v S3 Bucket](AWS_navod_static_website.md)
+  - [Návod zprovoznění CMS Wordpress](AWS_navod_wordpress.md)
+  - [Dokumentace](docs/Dokumentace.doc)

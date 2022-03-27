@@ -1,12 +1,13 @@
 # Microsoft Azure
-[zdroj 1](https://www.youtube.com/watch?v=9kcyEiTkC2E)
 - Stejné výhody jako u Amazonu (12 měsíců nejvyužívanějších služeb zdarma)
 - Zahájení v roce 2010
 - Datacentra ve více než 42 zemích světa
 - Odkaz na trial verzi služeb a jejich limity: [Klikněte zde](https://portal.azure.com/?quickstart=true#blade/Microsoft_Azure_Billing/FreeServicesBlade)
 - Podle statistik a podílu na trhu se jedná o druhou největší platformu hned po Amazon Web Services.
 
-Klíčové rozdíly oproti Amazon Web Services ([zdroj 2](https://www.educba.com/aws-vs-azure/)):
+[zdroj - informace k Azure](https://www.youtube.com/watch?v=9kcyEiTkC2E)
+
+Klíčové rozdíly oproti Amazon Web Services ([zdroj](https://www.educba.com/aws-vs-azure/)):
 - AWS i Azure využívají stejné modely, avšak Azure si účtuje za miutu, čož poskytuje přesnější cenový model
 - U AWS EC2 si uživatelé mohou vybrat vlastní předkonfigurovaný obraz systému, u AWS si nejprve musí uživatelé vybrat disk nakonfigurovaný třetí stranou
 - výběr z různých úrovní zabezpečení a integraci Microsoft programů
@@ -29,9 +30,7 @@ Klíčové rozdíly oproti Amazon Web Services ([zdroj 2](https://www.educba.com
 - Podrobný seznam služeb a většiny rozdílů najdete přehledně na https://www.guru99.com/azure-vs-aws.html.
 
 ## Vytvoření Linuxové VM a statický web, web nad frameworkem CI4
-
-- [zdroj 3](https://www.youtube.com/watch?v=iUaTq06m26g)
-
+[zdroj - vytvoření VM Azure](https://www.youtube.com/watch?v=iUaTq06m26g)
 - V základním panelu Azure máme přehledně vypsané služby. Klikneme na Virtuální počítače.
 
 ![Azure služby](img_azure/azure_panel.png)
@@ -103,5 +102,10 @@ https://computingforgeeks.com/how-to-install-php-on-ubuntu-2/
 
 MYSQL: https://www.digitalocean.com/community/tutorials/how-to-import-and-export-databases-in-mysql-or-mariadb
 
-### Instalace Wordpressu na službu Web App
-
+## Navigace:
+  - [Cloudové služby obecně](Cloudove_sluzby_obecne.md)
+  - [Amazon Web Services - Základní nastavení účtu](AWS_nastaveni.md)
+  - [Virtuální stroj v AWS](AWS_navod_VM.md)
+  - [Statický web v S3 Bucket](AWS_navod_static_website.md)
+  - [Návod zprovoznění CMS Wordpress](AWS_navod_wordpress.md)
+  - [Dokumentace](docs/Dokumentace.doc)
