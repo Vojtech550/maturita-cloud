@@ -97,9 +97,15 @@ Přes WinSCP můžeme nahrát náš web do domovského adresáře a přesunout h
 
 Poté musíme přidat oprávnění (v mém případě složka s webem skola-mapy)
 Pokud jsme neměnili nic v nastavení, hlavní httpd je „daemon“, jinak bychom museli napsat:
-ps aux | grep httpd
-sudo chown -R daemon /opt/lampp/htdocs/skola-mapy
+`ps aux | grep httpd
+sudo chown -R daemon /opt/lampp/htdocs/skola-mapy`
 Vše je teď hotové, stačí nám už jen spustit web.
+
+**Pokud využíváte jinou distribuci, než distribuce Amazon:** (např. Ubuntu)
+
+Pokud by web nešel spustit, je potřeba povolit v souboru `/opt/lampp/etc/php.ini` povolit následující rozšíření např.:
+změňte `;extension=intl` na `extension=intl`, naleznete je zde: https://onlinewebtutorblog.com/codeigniter-4/codeigniter-4-system-requirements/
+přes příkaz `sudo nano /opt/lapp/etc/php.ini` můžete editovat.
 
 ![web ukázka](img/web_ukazka.png)
 

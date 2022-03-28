@@ -28,7 +28,8 @@ Jedním z příkladů aplikace na cloudové službě je provozovat aplikaci urč
     2.	Kombinace privátního a veřejného za pomocí tzv. cloud burstingu . Příklad: pokud privátní cloud dosáhne sto procentního využití kapacity svých prostředků, provoz se přesměruje do veřejného cloudu, tím nedochází k přerušení aplikace, popřípadě krátkému výpadku.
 
 **Multicloud**
-  - Multicloud je takový druh cloudového řešení, který využívá více cloudů (např. Microsoft Azure, Google Cloud Platform, AWS), čímž dosahuje většího zabezpečení dat. Umožňuje roprostřít zátěž, snížit latenci pro uživatele i díky síti datacenter cloudových služeb, kde 
+  - Multicloud je takový druh cloudového řešení, který využívá více cloudů (např. Microsoft Azure, Google Cloud Platform, AWS), čímž dosahuje většího zabezpečení dat. Umožňuje roprostřít zátěž, snížit latenci pro uživatele i díky globální síti datacenter cloudových služeb, kde každá platforma má centra v jiných oblastech a díky tomu se značně zvýší pokrytí.
+  - Multicloud má i své nevýhody. Jednou z nich je například spravování více druhů prostředí, či složitější infrastrukturu, tuto problematiku lze řešit nástroji.
 
 ### Dělení na základě modelů služeb (Service Models)
 
