@@ -91,6 +91,12 @@ Poté můžeme nastavit databázi intuitivně přes phpmyadmina:
 
 ![phpMyAdmin  - vzdáleně](img/phpmyadmin.png)
 
+Předtím, než nahrajete ukázkový web škola mapy je potřeba stáhnout composer, pokud stahujete repozitář z githubu. Odkaz na composer (Windows): https://getcomposer.org/Composer-Setup.exe
+
+Poté stačí přejít do složky v programu `cmd.exe` ve windowsu (zkratka Win + R) a přejít do složky pomocí příkazů `cd cesta_ke_složce`. Až budete ve složce skola-mapy v cmd programu, napište: `composer update --no-dev`. 
+
+GitHub maže některé soubory, které jsou potřeba k správné funkčnosti frameworku.
+
 Přes WinSCP můžeme nahrát náš web do domovského adresáře a přesunout ho přes příkaz do /opt/lampp/htdocs složky:
 
 `sudo mv -R skola-mapy /opt/lampp/htdocs`
