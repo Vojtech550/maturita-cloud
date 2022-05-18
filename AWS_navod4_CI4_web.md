@@ -1,10 +1,10 @@
 ## Web postavený na frameworku s PHP - zprovoznění (CI4)
 
-Každý, kdo chce vytvořit dynamický web a použít vlastní framework musí mít nad webem kontrolu. Lightsail je jednodušší služba, ale nemáme nad webem plnou kontrolu. V tomto případě využijeme EC2, kde si všechno nastavíme, budeme také pracovat s CLI (Command Line Interface).
+Každý kdo chce vytvořit dynamický web a použít vlastní framework musí mít nad webem kontrolu. Lightsail je jednodušší služba, ale nemáme nad webem plnou kontrolu. V tomto případě využijeme EC2, kde si všechno nastavíme, budeme také pracovat s CLI (Command Line Interface).
 
 ### EC2 – vytvoření instance Linuxu
 
-Vytvoříme si novou instanci EC2. V horní vyhledávací liště napíšeme „EC2“. Zde potom klikneme na „Launch instances“. Projistotu zaškrtneme opět „Free tier only“ a první linuxovou distribuci.
+Vytvoříme si novou instanci EC2. V horní vyhledávací liště napíšeme „EC2“. Zde potom klikneme na „Launch instances“. Pro jistotu zaškrtneme opět „Free tier only“ a první linuxovou distribuci.
 
 ![vytváření instance](img/vytvoreni_instance.png)
 
@@ -18,34 +18,34 @@ Potom bychom v ní nastavili tyto nové porty, a to https a https. Viz předchoz
 
 ***Vytvoření skupiny***
 
-Vybrali bychom „Create a new security group“ a zde již naklikali HTTPS a http přesně tak, jak je na obrázku a libovolně si ji pojmenovali.
+Vybrali bychom „Create a new security group“ a zde již naklikali https a http přesně tak, jak je na obrázku a libovolně si ji pojmenovali.
 
 ![vytvoření skupiny](img/vytvoreni_skupiny.png)
 
-Na konci nám stačí zkontrolovat, jestli máme vše vyplněné a „Launch.“ Pokud se nás zeptá na vytvoření nového klíče či použít existující, nechám na vás.
+Na konci nám stačí zkontrolovat, jestli máme vše vyplněné a „Launch“. Pokud se nás zeptá na vytvoření nového klíče či použít existující, nechám na vás.
 
-**Nesmíme zapomenout si naši instanci pojmenovat**, abychom se vůbec vyznali co na jaké instanci nám běží. V hlavním menu EC2 služby klikneme na ikonku poznámky jak je vyobrazeno na obrázku.
+**Nesmíme zapomenout si naši instanci pojmenovat**, abychom se vůbec vyznali co na jaké instanci nám běží. V hlavním menu EC2 služby najedeme na jméno instance (buňka s názvem Name, kde jsou pomlčky) na ikonku poznámky jak je vyobrazeno na obrázku.
 
 ![pojmenování instance EC2](img/pojmenovani_instance.png)
 
-Vysvětlení jak se připojuje k instanci přes PuTTY je vysvětleno v kapitole [Připojení k instanci přes Putty](AWS_navod_VM.md/#2.4.3-Připojení-k-instanci-linuxu-přes-Putty)
+Vysvětlení jak se připojuje k instanci přes PuTTY je uvedeno v kapitole [Připojení k instanci přes Putty](AWS_navod_VM.md/###Připojení-k-instanci-linuxu-přes-Putty)
 
 Předtím, než začneme s instalací MySQL služby, musíme nastavit elastickou IP adresu, jak již z předchozího návodu, musí být připojena k instanci, jinak za ní budeme platit.
 
-V pravém panelu v kategorii „Network & Security“ zvolíme „Elastic IPs.“ Zde klikneme v pravém horním rohu na „Allocate Elastic IP address.“
+V pravém panelu v kategorii „Network & Security“ zvolíme „Elastic IPs“. Zde klikneme v pravém horním rohu na „Allocate Elastic IP address“.
 
 ![allocate Elastic IP address](img/prirazeni_IP.png)
 
 ![přiřazení regionu](img/prirazeni_regionu.png)
 
-Po vytvoření opět musíme vybrat naši IP adresu a kliknout na „Actions“ a „Associate Elastic IP address“. Z výběru instancí zvolíme tu, kterou chceme s elastickou IP adresou svázat a zašrkrtneme poslední políčko tak, jak je to na obrázku a kliknem na „Associate.“
+Po vytvoření opět musíme vybrat naši IP adresu a kliknout na „Actions“ a „Associate Elastic IP address“. Z výběru instancí zvolíme tu, kterou chceme s elastickou IP adresou svázat a zašrkrtneme poslední políčko tak, jak je to na obrázku a kliknem na „Associate“.
 
 ![instance elastic IP](img/instance_elastic_IP.png)
 
-Popřípadě mžůeme instalovat všechno v jednom pomocí xampp klienta a potom intuitivně nastavovat databázi přes phpMyAdmin.
+Popřípadě můžeme instalovat všechno v jednom pomocí xampp klienta a potom intuitivně nastavovat databázi přes phpMyAdmin.
 Použijeme příkaz ke stáhnutí xampp balíčku:
 
-sudo wget https://www.apachefriends.org/xampp-files/8.1.1/xampp-linux-x64-8.1.1-2-installer.run
+`sudo wget https://www.apachefriends.org/xampp-files/8.1.1/xampp-linux-x64-8.1.1-2-installer.run`
 
 poté můžeme udělat soubor spustitelný pomocí:
 ```
@@ -59,7 +59,7 @@ Vše v instalaci potvrdíme (buď napíšeme y zmáčkneme enter) a vyčkáme do
 
 ![instalace xampp a služba](img/instalace_xampp.png)
 
-Když přejdeme na phpMyAdmin, tak se nám zobrazí strának s chybovou hláškou, kterou spravíme v httpd-xampp.conf.
+Když přejdeme na phpMyAdmin, tak se nám zobrazí stránek s chybovou hláškou, kterou spravíme v httpd-xampp.conf.
 
 ![přístup odepřen phpmyadmin](img/pristup_odepren.png)
 
@@ -99,9 +99,9 @@ GitHub maže některé soubory, které jsou potřeba k správné funkčnosti fra
 
 Přes WinSCP můžeme nahrát náš web do domovského adresáře a přesunout ho přes příkaz do /opt/lampp/htdocs složky:
 
-`sudo mv -R skola-mapy /opt/lampp/htdocs`
+`sudo mv skola-mapy /opt/lampp/htdocs`
 
-Poté musíme přidat oprávnění (v mém případě složka s webem skola-mapy)
+Poté musíme přidat oprávnění (v mém případě složka s webem skola-mapy).
 Pokud jsme neměnili nic v nastavení, hlavní httpd je „daemon“, jinak bychom museli napsat:
 `ps aux | grep httpd
 sudo chown -R daemon /opt/lampp/htdocs/skola-mapy`
@@ -133,45 +133,45 @@ Chceme-li mít naše připojení zabezpečené a šifrované, využijeme služby
 
 Místo adresy http://www.myawswp.ml budeme mít zabezpečenou adresu https://www.myawswp.ml, takže náš prohlížeč nebude hlásit, že je připojení nezabezpečené. Zároveň SSL certifikát musí být připojený k jedné službě ať už je to Load balancer, CloudFront či další vhodné.
 
-Předtím, než začneme odkazuji na tutoriál „Doména webové stránky (přes DNS freenom.com),“ kde mám popsanou část se službou Route53 a přístup k webu ať už uživatel napíše adresu s předponou „www,“ nebo bez. Část s vlastní DNS freenom můžeme vynechat, pokud nechceme vlastní doménu. Ale vytvoření „hosted zone.“ je povinné.
+Předtím než začneme, odkazuji na tutoriál „Doména webové stránky (přes DNS freenom.com)“, kde mám popsanou část se službou Route53 a přístup k webu ať už uživatel napíše adresu s předponou „www“, nebo bez. Část s vlastní DNS freenom můžeme vynechat, pokud nechceme vlastní doménu. Ale vytvoření „hosted zone“ je povinné.
 
-My si vybereme v rámci free tieru Load balancer, který slouží k balancování „dopravy.“ Pokud bude jeden server zatížený, tak Load balancer rozprostře požadavky na server po ostatních vytvořených serverech, ke kterým se dostanu.
+V rámci free tieru si vybereme Load balancer, který rozprostře zátěž na ostatní datové linky. Pokud bude jeden server zatížený, tak Load balancer rozprostře požadavky na server po ostatních vytvořených serverech, ke kterým se dostanu. V případě nefunkčnosti server odpojí z provozu.
 
 1. Najdeme si službu Certificate Manager. 
-2. Vybereme „Request a certificate“ a zvolíme „Request a public certificate.“
-3. V „Domain names“ napíšeme naši webovou stránku, pro mě již vytvořená „myawswp.ml“ „www.myawswp.ml,“ jelikož pokud chceme udělat web přístupný pod kterýmkoliv formátem, který uživatel zadá, musíme přidat 2 adresy do certifikátu. V Lightsail toto vše bylo řešeno pouze pár příkazy, v EC2 máme nad tím plnou kontrolu.
+2. Vybereme „Request a certificate“ a zvolíme „Request a public certificate“.
+3. V „Domain names“ napíšeme naši webovou stránku, pro mě již vytvořená „myawswp.ml“ „www.myawswp.ml“, jelikož pokud chceme udělat web přístupný pod kterýmkoliv formátem, který uživatel zadá, musíme přidat 2 adresy do certifikátu. V Lightsail toto vše bylo řešeno pouze pár příkazy, v EC2 máme nad tím plnou kontrolu.
 
 ![certifikát - doména](img/certifikat_domena.png)
 
-V dalším kroku se Amazon musí ujistit, že jsme vlastníky domény. Zvolíme první možnost a dole „request.“ **Stránku nezavírejte!**
+V dalším kroku se Amazon musí ujistit, že jsme vlastníky domény. Zvolíme první možnost a dole „request“. **Stránku nezavírejte!**
 
 ![certifikát - čekání na ověření](img/overeni.png)
 
-Rozklikneme Certificate ID našeho certifikátu a v Domains máme CNAME name a CNAME value record, který přidáme do Route53 -> Hosted zones -> naše doména. Vytvoříme nový „Record Set.“ Vrátíme se zpátky na náš certifikát a zkopírujeme CNAME name, který potom vložíme záznamu, který tvoříme v „Record name.“ **Smažeme na konci naši doménu, kterou již máme vytvořenou**. „Record type“ navolíme CNAME a „Value“ zkopírujeme opět z našeho certifikátu a vložíme a vytvoříme záznam.
+Rozklikneme Certificate ID našeho certifikátu a v Domains máme CNAME name a CNAME value record, který přidáme do Route53 -> Hosted zones -> naše doména. Vytvoříme nový „Record Set“. Vrátíme se zpátky na náš certifikát a zkopírujeme CNAME name, který potom vložíme do záznamu, který tvoříme v „Record name“. **Smažeme na konci naši doménu, kterou již máme vytvořenou**. „Record type“ navolíme CNAME a „Value“ zkopírujeme opět z našeho certifikátu a vložíme a vytvoříme záznam.
 
 ![záznam typu CNAME](img/cname.png)
 
 ![výsledek – jak mají vypadat záznamy (DNS + certifikát ověření)](img/vysledek_tabulka.png)
 
-Vyčkáme asi kolem 3-5 minut (může trvat i déle, ale 3-5 minut je obvyklá doba, než Amazon vše ověří a vytvoří nám SSL certifikát. Po znovu načtení stránky se nám ve statusu objeví „Issued.“ V další fázi vytvoříme Load Balancer, ke kterému napojíme právě náš SSL certifikát.
+Vyčkáme asi kolem 3-5 minut (může trvat i déle, ale 3-5 minut je obvyklá doba, než Amazon vše ověří a vytvoří nám SSL certifikát. Po opětovném načtení stránky se nám ve statusu objeví „Issued“. V další fázi vytvoříme Load Balancer, ke kterému napojíme právě náš SSL certifikát.
 
 ![ověřené záznamy k certifikátu „CNAME records“](img/overene_zaznamy.png)
 
 ***Load-Balancer – připojení certifikátu k instanci Linuxu***
 V rámci služby EC2 je load balancer zdarma na který se musí vázat (nebo k jiné službě), ten potřebujeme k SSL certifikátu. 
 
-V konzoli napíšeme „Load Balancer“ a dole v kategorii „Features“ najdeme „Load Balancers“ pro Lightsail. Klineme na „Create load balancer“ a vybereme „Application load balancer.“ Load Balancer si můžeme libovolně pojmenovat.
+V konzoli napíšeme „Load Balancer“ a dole v kategorii „Features“ najdeme „Load Balancers“ pro Lightsail. Klineme na „Create load balancer“ a vybereme „Application load balancer“. Load Balancer si můžeme libovolně pojmenovat.
 
 ***Nastavení load balanceru***
 
 **Název** – zvolíme si libovolný název
 
-**Network mapping** - zde musíme vybrat zóny, kde jsme si vytvořili náš web. Zjistíme v hlavním výběru instancí v EC2 službě v „availability Zone.“ Musíme zvolit minimálně 2 zóny.
+**Network mapping** - zde musíme vybrat zóny, kde jsme si vytvořili náš web. Zjistíme v hlavním výběru instancí v EC2 službě v „availability Zone“. Musíme zvolit minimálně 2 zóny.
 
 ![availability Zone](img/availability_zone.png)
 
-**Listeners and Routing** – zde přidáme kromě protokolu „http“ i „https.“
--	V „Listeners and Routing klikneme v „http“ protokolu na „Create target group.“ Pokud budeme chtít pouze přesměrovávat na https, **postačí nám vytvořit skupinu pro https s portem 443 místo portu 80.**
+**Listeners and Routing** – zde přidáme kromě protokolu „http“ i „https“.
+-	V „Listeners and Routing klikneme v „http“ protokolu na „Create target group“. Pokud budeme chtít pouze přesměrovávat na https, **postačí nám vytvořit skupinu pro https s portem 443 místo portu 80.**
 
 ![listener port 80](img/listener_port_80.png)
 
@@ -193,7 +193,7 @@ Přejdeme zpátky k load balanceru a klikenme v „http listeneru“ na tlačít
 ![vyběr SSL certifikátu](img/vyber_certifikatu.png)
 
 Security groups – vybere skupinu, kde máme nastavené protokoly: https, https
-Vytvoříme load balancer. A zkopírujeme „DNS name“. V route53 pod naším webem vytvoříme záznam typu „A record.“ Můžeme smazat A recordy s „www“ i bez www, abychom zde vložili náš nový A record s load balancerem. Přes něj poté budeme přesměrovávat http na https. Vytvoříme stejný record i s „www.“
+Vytvoříme load balancer. A zkopírujeme „DNS name“. V route53 pod naším webem vytvoříme záznam typu „A record“. Můžeme smazat A recordy s „www“ i bez www, abychom zde vložili náš nový A record s load balancerem. Přes něj poté budeme přesměrovávat http na https. Vytvoříme stejný record i s „www“.
 Route Traffic to – Zde vybereme Alias a v políčkách bude (jak jde za sebou)
 1.	Alias to Application and Classic Load Balancer.
 2.	Region, ve kterém se nachází náš load balancer
@@ -209,7 +209,7 @@ Jak vypadá route tabulka v Route53 po nasazení SSL certifikátu, nastavení DN
 
 ***Přesměrování na https***
 
-Stačí přejít do Load Balancers -> Listeners kliknout na http listener a kliknout na „Edit.“ Poté stačí změnit skupinu na tu, kterou jsme si vytvořili pro https protokol.
+Stačí přejít do Load Balancers -> Listeners kliknout na http listener a kliknout na „Edit“. Poté stačí změnit skupinu na tu, kterou jsme si vytvořili pro https protokol.
 
 Ve „View/edit rules“ se dají přidávat libovolná pravidla s „if“ podmínkou.
 
@@ -226,5 +226,6 @@ Ve složce htdocs ve složce /opt/lampp/htdocs/ soubor „index.php“ upravíme
   - [Amazon Web Services - Základní nastavení účtu](AWS_nastaveni.md)
   - [Virtuální stroj v AWS](AWS_navod_VM.md)
   - [Statický web v S3 Bucket](AWS_navod_static_website.md)
+  - [Web postavený nad frameworem v EC2](AWS_navod4_CI4_web.md)
   - [Návod zprovoznění CMS Wordpress](AWS_navod_wordpress.md)
   - [Dokumentace](docs/Dokumentace.doc)

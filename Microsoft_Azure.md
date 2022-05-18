@@ -107,5 +107,6 @@ MYSQL: https://www.digitalocean.com/community/tutorials/how-to-import-and-export
   - [Amazon Web Services - Základní nastavení účtu](AWS_nastaveni.md)
   - [Virtuální stroj v AWS](AWS_navod_VM.md)
   - [Statický web v S3 Bucket](AWS_navod_static_website.md)
+  - [Web postavený nad frameworem v EC2](AWS_navod4_CI4_web.md)
   - [Návod zprovoznění CMS Wordpress](AWS_navod_wordpress.md)
   - [Dokumentace](docs/Dokumentace.doc)

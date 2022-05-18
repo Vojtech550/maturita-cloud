@@ -18,7 +18,7 @@ Pyšní se svou stabilitou, zabezpečením a škálovatelností. Ve výchozím r
 
 ### Amazon S3 Bucket
 
-Začneme se službou S3, kterou najdeme v kategorii Storage. Klikneme na „Create bucket.“ „Bucket name“ musí být globálně unikátním názvem, takže nikdo na světe ho nesmí mít stejně pojmenovaný. Pro více informací navštivte: https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html.
+Začneme se službou S3, kterou najdeme v kategorii Storage. Klikneme na „Create bucket“. „Bucket name“ musí být globálně unikátním názvem, takže nikdo na světe ho nesmí mít stejně pojmenovaný. Pro více informací navštivte: https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html.
 Já si ho pojmenuji „www.awstestpage.cz“. AWS Region je server, kde budeme hostovat náš server.
 
 **Důležité!** „Block Public Access settings for this bucket“ nesmí být zaškrtlé, jelikož děláme statickou stránku a ta musí být veřejně přístupná, také k objektům budou mít přístup k objektům všichni uživatelé veřejně. Pokud by nebyla, uživatel by dostal chybovou hlášku. 
@@ -31,19 +31,19 @@ Tags slouží, jako u vytváření instance Linuxu, k vytvoření skupiny za pom
 
 Object-level logging a další jsou již placené služby. Je podobný k Server Access Logging, výhodou je jen, že dostanete více informací než u Server access logging. Využívá službu CloudTrail, za kterou bychom si museli připlatit. Naopak Server access logging využívá S3 delivery, který operuje pouze v S3 Bucketu.
 
-Default encryption je k zašifrování souborů a Object lock přiřadí zámek k určitým souborům a nepůjdou smazat. Přeskočíme vše ostatní a dáme „Create bucket.“
+Default encryption je k zašifrování souborů a Object lock přiřadí zámek k určitým souborům a nepůjdou smazat. Přeskočíme vše ostatní a dáme „Create bucket“.
 
-Rozklikneme si náš bucket a dáme upload. Nahrajeme všechny potřebné soubory pro náš web. V rozhraní máme „add folder“ a „add files“ zvlášť. Po nahrání souborů a složek sjedeme dolů klikneme na „Permission.“ Zde musí být vše veřejně dostupné, takže změníme možnost na „Grant public-read access.“ Properties necháme na standartním, abychom neplatili. Poté klikneme na „Upload.“
+Rozklikneme si náš bucket a dáme upload. Nahrajeme všechny potřebné soubory pro náš web. V rozhraní máme „add folder“ a „add files“ zvlášť. Po nahrání souborů a složek sjedeme dolů klikneme na „Permission“. Zde musí být vše veřejně dostupné, takže změníme možnost na „Grant public-read access“. Properties necháme na standartním, abychom neplatili. Poté klikneme na „Upload“.
 
 ![S3 Bucket Permissions](img/bucket_permissions.png)
 
 Zde je odkaz na přehledný ceník na službu Amazon S3: https://aws.amazon.com/s3/pricing/
 
-Po prohlédnutí informací zavřeme okno a přejdeme do „Properties.“ Úplně dole je „Static website hosting.“ Dáme „edit“ a „enabled“. Do políčka Index document napíšeme naši hlavní stránku, v mém případě „index.html“. Posledním krokem je „Save changes.“ V „Properties“ dole máme Static website hosting a adresu k našemu S3 bucketu, ale ještě není dostupný všem na světě. Odkaz na moji statickou stránku (momentálně vypnuta, všimněte si oblasti, kde se nachází): http://www.awstestpage.cz.s3-website.eu-central-1.amazonaws.com/
+Po prohlédnutí informací zavřeme okno a přejdeme do „Properties“. Úplně dole je „Static website hosting“. Dáme „edit“ a „enabled“. Do políčka Index document napíšeme naši hlavní stránku, v mém případě „index.html“. Posledním krokem je „Save changes“. V „Properties“ dole máme Static website hosting a adresu k našemu S3 bucketu, ale ještě není dostupný všem na světě. Odkaz na moji statickou stránku (momentálně vypnuta, všimněte si oblasti, kde se nachází): http://www.awstestpage.cz.s3-website.eu-central-1.amazonaws.com/
 
 Zde je odkaz na přehledný ceník na službu Amazon S3: https://aws.amazon.com/s3/pricing/
 
-Po prohlédnutí informací zavřeme okno a přejdeme do „Properties.“ Úplně dole je „Static website hosting.“ Dáme „edit“ a „enabled“. Do políčka Index document napíšeme naši hlavní stránku, v mém případě „index.html“. Posledním krokem je „Save changes.“ V „Properties“ dole máme Static website hosting a adresu k našemu S3 bucketu, ale ještě nemusí být všem přístupný. Odkaz na moji statickou stránku: http://www.awstestpage.cz.s3-website.eu-central-1.amazonaws.com/
+Po prohlédnutí informací zavřeme okno a přejdeme do „Properties“. Úplně dole je „Static website hosting“. Dáme „edit“ a „enabled“. Do políčka Index document napíšeme naši hlavní stránku, v mém případě „index.html“. Posledním krokem je „Save changes“. V „Properties“ dole máme Static website hosting a adresu k našemu S3 bucketu, ale ještě nemusí být všem přístupný. Odkaz na moji statickou stránku: http://www.awstestpage.cz.s3-website.eu-central-1.amazonaws.com/
 
 ### Statický web na EC2 instanci
 V cloudech není jen jedno řešení jejich víc. K zprovoznění můžeme využít i EC2 službu, kde můžeme provozovat naši statickou stránku.
@@ -58,13 +58,13 @@ systemctl enable httpd
 
 ![zde vložíme skript](img/skript.png)
 
-Klikneme na „Next:Add Storage,“ kde si navolíme kapacitu disku. Klikneme na „Next“ dvakrát a nakonfigurujeme „Configure Security Group.“ Zde klikneme na „Select an existing security group.“ Zvolíme si tu, co jsme poprvé zvolili. V mém případě se jmenuje „cloudnewbie.“ Přeskočíme „review details“ a dáme launch. Zvolíme náš pár klíčů, který jsme si vytvořili u předchozí instance Linuxu a zafajfkujeme „I Aknowledge...“ Dalším problémem bude to, že instanci budeme využívat jako hosting pro náš statický web. Budeme muset změnit Protokol na http.
+Klikneme na „Next:Add Storage,“ kde si navolíme kapacitu disku. Klikneme na „Next“ dvakrát a nakonfigurujeme „Configure Security Group“. Zde klikneme na „Select an existing security group“. Zvolíme si tu, co jsme poprvé zvolili. V mém případě se jmenuje „cloudnewbie“. Přeskočíme „review details“ a dáme launch. Zvolíme náš pár klíčů, který jsme si vytvořili u předchozí instance Linuxu a zafajfkujeme „I Aknowledge...“ Dalším problémem bude to, že instanci budeme využívat jako hosting pro náš statický web. Budeme muset změnit Protokol na http.
 
 ![Nastavení bezpečnostích skupin](img/skupiny_nastaveni.png)
 
-Než se nám instance EC2 nastaví a spustí, přejdeme do EC2 služby v „Network & Security“ máme „Security Groups.“ V tomto nastavení nastavíme protokol http (80), abychom mohli provozovat náš web.
+Než se nám instance EC2 nastaví a spustí, přejdeme do EC2 služby v „Network & Security“ máme „Security Groups“. V tomto nastavení nastavíme protokol http (80), abychom mohli provozovat náš web.
 
-Vybereme skupinu, kterou jsme si již dříve vytvořili. V „Inbound rules“ máme po pravé straně „Edit inbound rules.“ Zde přidáme pravidlo (Add rule) a v prvním políčku napíšeme http a déle vybereme Anywhere-IPv4. Přidáme stejné pravidlo pro IPv6 pokud ji budeme používat, ale nemusíme.
+Vybereme skupinu, kterou jsme si již dříve vytvořili. V „Inbound rules“ máme po pravé straně „Edit inbound rules“. Zde přidáme pravidlo (Add rule) a v prvním políčku napíšeme http a následně vybereme Anywhere-IPv4. Přidáme stejné pravidlo pro IPv6 pokud ji budeme používat, ale nemusíme.
 
 ![protokol http Ipv4](img/protokol_http_Ipv4.png)
 
@@ -72,17 +72,17 @@ Jak můžeme vidět, tak máme celkem 3 protokoly, jeden máme pro IPv6 a druhý
 
 ![protokoly přiřazené ke skupině](img/vstupni_pravidla.png)
 
-Přejdeme na naši instanci linuxu s http protokolem v „Instances“ a podíváme se na „Details.“ Zde máme na výběr z DNS adresy, nebo IP, zvolte si, jakou se chcete připojovat. Ale musí být public.
+Přejdeme na naši instanci linuxu s http protokolem v „Instances“ a podíváme se na „Details“. Zde máme na výběr z DNS adresy, nebo IP, zvolte si, jakou se chcete připojovat. Ale musí být public.
 
 Přejdeme na naši instanci a připojíme se přes PuTTY. V nastavení Auth zvolíme náš klíč a připojíme se pod názvem ve tvaru `ec2-user@naše public IPv4 adresa`. Můžeme si ověřit pomocí příkazu, že nám služba Apache běží.
 
-`systemctl status httpds`
+`systemctl status httpd`
 
 ![služba Apache status](img/apache_status.png)
 
 Nyní stáhneme nástroj Win SCP, který nám poslouží k napojení se na instanci linuxu. Odkaz ke stažení zde: https://winscp.net/eng/download.php.
 
-Po stažení a nainstalování si spustíme program WinSCP. Připojíme se přes protokol SFTP na portu 22. Do „Host name“ kolonky vložíme naši adresu „veřejná IPv4 adresa instance linuxu“ a do kolonky „Username“ vložíme „ec2-user.“ Dalším krokem je přidání našeho privátního klíče.
+Po stažení a nainstalování si spustíme program WinSCP. Připojíme se přes protokol SFTP na portu 22. Do „Host name“ kolonky vložíme naši adresu „veřejná IPv4 adresa instance linuxu“ a do kolonky „Username“ vložíme „ec2-user“. Dalším krokem je přidání našeho privátního klíče.
 
 ![připojení přes WinSCP](img/WinSCP.png)
 
@@ -90,7 +90,7 @@ Klikneme na „Advanced“ dvakrát a v „Authentication“ si si vybereme ná�
 
 ![Vložení klíče do WinSCP](img/klic_winscp.png)
 
-Pokud se nás na něco zeptá klikneme na „Yes.“
+Pokud se nás na něco zeptá klikneme na „Yes“.
 Rozhraní je vcelku jednoduché. Na levé straně vidíme lokální soubory počítače, na pravé naši instanci Linuxu. Poklepnutím dvakrát na modrou lištu levé strany se nám otevře nabídka, kde si s použitím tlačítka „browse“ vybereme složku, kde je náš web uložený a přetáhneme na druhou stranu. Složka s webem se nám uloží do domovského adresáře a je hotovo. Program můžeme ukončit.
 
 ![rozhraní programu WinSCP](img/GUI_winscp.png)

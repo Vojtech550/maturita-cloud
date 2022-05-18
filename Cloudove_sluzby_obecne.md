@@ -43,7 +43,7 @@ Jedním z příkladů aplikace na cloudové službě je provozovat aplikaci urč
    - Tento model poskytuje kompletní IT řešení firmám. Výpočetní technologie (cloud computing), úložiště, síťové a další prostředky, kde spotřebitel nasadí a zprovozní vlastní aplikaci. Příklady: Amazon EC2, Windows Azure, Google Compute Engine
 
 **Funkce jako služba (FaaS)**
-   - FaaS se často pozná a spojuje se slovem „serverless,“ tedy bez serveru. To znamená, že ke spuštění služby nepotřebujeme server a běží nezávisle bez uživatelského prostředí. Umožňuje aplikace spouštět pomocí kontejnerů a vývojář se nemusí starat o další věci.
+   - FaaS se často pozná a spojuje se slovem „serverless“, tedy bez serveru. To znamená, že ke spuštění služby nepotřebujeme server a běží nezávisle bez uživatelského prostředí. Umožňuje aplikace spouštět pomocí kontejnerů a vývojář se nemusí starat o další věci.
    - Jedním z příkladů může být AWS Lambda, výpočetní služba bez serveru, která slouží ke spouštění kódu dalších aplikací.
    - další výhody: platíme jen za to, co využijeme, automatické škálování atd.
 
@@ -61,5 +61,6 @@ Cloud samozřejmě zahrnuje i další druhy, vyjmenoval jsem jen ty nejzákladn�
   - [Amazon Web Services - Základní nastavení účtu](AWS_nastaveni.md)
   - [Virtuální stroj v AWS](AWS_navod_VM.md)
   - [Statický web v S3 Bucket](AWS_navod_static_website.md)
+  - [Web postavený nad frameworem v EC2](AWS_navod4_CI4_web.md)
   - [Návod zprovoznění CMS Wordpress](AWS_navod_wordpress.md)
   - [Dokumentace](docs/Dokumentace.doc)

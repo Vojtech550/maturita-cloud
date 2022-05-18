@@ -11,8 +11,8 @@ Lightsail je jedna z alternativních služeb, na které lze hostovat vlastní we
 **Je zdarma po dobu 3 měsíců a 750 hodin v provozu každý měsíc zdarma, poté si Amazon účtuje poplatky. Za nejnižší balíček (RAM, CPU, disk) $3,50 USD. Cena nemusí být aktuální.**
 
 1. Do konzole napíšeme „Lightsail“ nebo ji můžeme najít na úvodní stránce konzole. 
-2. Klikneme na „Create Instance.“ Zde se nás zeptá na region, ve kterém chceme mít naši aplikaci zprovozněnou. Pokud nemáme vybraný region, tak vybereme ten nejbližší. V konzoli jsem si již vybral „Frankfurt eu-central-1,“ jako mou nejbližší lokaci. Můžeme ale také zvolit lokaci, ze které očekáváme největší množství budoucích uživatelů našich stránek.
-3. Necháme si předem zvolenou platformu instance „Linux/Unix“ a blueprint „Wordpress.“ SSH key můžeme nechat tak jak je. Připojovat se budeme jiným způsobem. 
+2. Klikneme na „Create Instance“. Zde se nás zeptá na region, ve kterém chceme mít naši aplikaci zprovozněnou. Pokud nemáme vybraný region, tak vybereme ten nejbližší. V konzoli jsem si již vybral „Frankfurt eu-central-1“, jako mou nejbližší lokaci. Můžeme ale také zvolit lokaci, ze které očekáváme největší množství budoucích uživatelů našich stránek.
+3. Necháme si předem zvolenou platformu instance „Linux/Unix“ a blueprint „Wordpress“. SSH key můžeme nechat tak jak je. Připojovat se budeme jiným způsobem. 
 4. „Instance plan“ ponecháme na výchozím. Poté se dá plán vybírat podle toho, jestli potřebujeme mít více místa na disku/výpočetní výkon atd..
 
 „Enable automatic snapshots“ slouží k pravidelným zálohám serveru, které pro nás ale budou nepotřebné. Za tuto službu se platí $0.05 USD za gigabajt/měsíčně. V poslední kolonce si pojmenujeme instanci. Cena nemusí být aktuální.
@@ -23,7 +23,8 @@ Privátní IP adresa je dostupná pouze v rámci Lightsailu na Amazonu a Public 
 
 ![Obrázek 22 Instance Linux - Wordpress](img/wordpress.png)
 
-Jak vidíme, máme k dispozici Ipv4 a Ipv6, která je veřejná. Takže hned si můžeme zkusit načíst naši stránku. První přejdeme do administrace wordpressu. Jako každý Wordpress web se do administrace dostaneme pomocí URL: „naše ip adresa/wp-admin.“  Username je vždy „user“ a heslo získáme z terminálu viz. obrázek.
+Jak vidíme, máme k dispozici Ipv4 a Ipv6, která je veřejná. Takže hned si můžeme zkusit načíst naši stránku. První přejdeme do administrace wordpressu. Jako každý Wordpress web se do administrace dostaneme pomocí URL:
+- „naše ip adresa/wp-admin“.  Username je vždy „user“ a heslo získáme z terminálu viz. obrázek.
 
 Po spuštění napíšeme příkaz: `cat bitnami_application_password` Heslo nám slouží k přihlášení do administrace.
 
@@ -49,11 +50,11 @@ Freenom je web, který usnadňuje hledání pro alternativní DNS domény. Jedin
 
 DNS je protokol, který překládá adresy z čísel na čtivé a lehce zapamatovatelné názvy. Například Freeweb.cz a další.
 
-Přejdeme na stránku https://www.freenom.com/en/index.html?lang=en, kde v navigaci přejdeme do „Services“ a „Register a New Domain.“ Zadáme doménu podle našeho výběru ve tvaru „nazev_webu.přípona“ např.: „myawswp.ml.“ Lze si vybrat ze čtyř přípon: .tk, .ml, .ga, .gq. dostupnost domény a pokud je dostupná, pokračujeme na „Checkout.“
+Přejdeme na stránku https://www.freenom.com/en/index.html?lang=en, kde v navigaci přejdeme do „Services“ a „Register a New Domain“. Zadáme doménu podle našeho výběru ve tvaru „nazev_webu.přípona“ např.: „myawswp.ml“. Lze si vybrat ze čtyř přípon: .tk, .ml, .ga, .gq. dostupnost domény a pokud je dostupná, pokračujeme na „Checkout“.
 
 ![Obrázek 25 freenom.com adresa](img/freenom_adresa.png)
 
-Po kliknutí se nám zobrazí  menu kde si nastavíme „Period,“ tedy po jakou dobu bude doména aktivní. Limit je 1 rok pro účet zdarma. Hostname musí být s předponou „www“ i bez, aby mohl zadávat adresu i zkráceným způsobem. Do „IP address“ napíšeme naši statickou IP adresu.
+Po kliknutí se nám zobrazí  menu kde si nastavíme „Period“, tedy po jakou dobu bude doména aktivní. Limit je 1 rok pro účet zdarma. Hostname musí být s předponou „www“ i bez, aby mohl zadávat adresu i zkráceným způsobem. Do „IP address“ napíšeme naši statickou IP adresu.
 
 ![Obrázek 26 nabídka DNS](img/nabidka_dns.png)
 
@@ -61,13 +62,13 @@ Poté zadáme náš email v dolním rohu „Verify My Email Address“ a máme h
 
 ![Obrázek 27 freenom.com doména zdarma](img/domena_zdarma.png)
 
-Teď se podíváme do služby Route53 v konzoli. 	Na hlavní stránce služby klikneme na „Create hosted zone.“ V „Domain name“ napíšeme adresu, kterou jsme si na freenom vytvořili př. „myawswp.ml.“ a vytvoříme.
+Teď se podíváme do služby Route53 v konzoli. 	Na hlavní stránce služby klikneme na „Create hosted zone“. V „Domain name“ napíšeme adresu, kterou jsme si na freenom vytvořili př. „myawswp.ml“. a vytvoříme.
 
 ![Obrázek 28 směrování IP adresy v Route53](img/tabulka_route53.png)
 
-Nejdůležitější ze všech částí bude „Value/Route traffic to.“ Označuje servery přes které bude putovat, aby se připojil k naší veřejné doméně. NS znamená Name Server. TTL je time to live, říká, jak dlouho bude DNS záznam uchován v cache lokálního DNS serveru, je nejlepší mít toto číslo co nejnižší, necháme na 300.
+Nejdůležitější ze všech částí bude „Value/Route traffic to“. Označuje servery přes které bude putovat, aby se připojil k naší veřejné doméně. NS znamená Name Server. TTL je time to live, říká, jak dlouho bude DNS záznam uchován v cache lokálního DNS serveru, je nejlepší mít toto číslo co nejnižší, necháme na 300.
 
-Klikneme na Create record -> simple routing. „Record name“ necháme prázdné. Uděláme stejný krok, jen poprvé necháme Record name prázdné a podruhé přidáme „www.“ Do „Value“ vložíme naši statickou IP adresu nebo veřejnou IP adresu, IP adresy oddělujeme klávesou enter. 
+Klikneme na Create record -> simple routing. „Record name“ necháme prázdné. Uděláme stejný krok, jen poprvé necháme Record name prázdné a podruhé přidáme „www“. Do „Value“ vložíme naši statickou IP adresu nebo veřejnou IP adresu, IP adresy oddělujeme klávesou enter. 
 
 ![Obrázek 29 vytvoření záznamu](img/vytvoreni_zaznamu.png)
 
@@ -82,10 +83,10 @@ Můžeme také využít Amazon DNS server. Po přihlášení na freenom.com pře
 ### Zajištění SSL certifikátu (Lightsail)
 Chceme-li mít naše připojení zabezpečené a šifrované využijeme SSL certifikátu, který zabezpečuje připojení mezi transportní a aplikační vrstvou. Místo adresy `http://www.myawswp.ml` budeme mít zabezpečenou adresu `https://www.myawswp.ml`, takže náš prohlížeč nebude hlásit, že je připojení nezabezpečené. U Lightsailu se dá SSL certifikát nastavit za pár momentů i tak to ale pár minut potrvá.
 
-Zapneme naši instanci v Lightsailu klidně z našeho počítače, jelikož jsme nenastavovali SSH připojení přes Putty. Klikneme na „Connect using SSH.“ Linux se nám spustí v prohlžíeči v novém okně. Teď už jen stačí zadat následující příkaz, který nás poté provede nastavením.
+Zapneme naši instanci v Lightsailu klidně z našeho počítače, jelikož jsme nenastavovali SSH připojení přes Putty. Klikneme na „Connect using SSH“. Linux se nám spustí v prohlžíeči v novém okně. Teď už jen stačí zadat následující příkaz, který nás poté provede nastavením.
 
 1.	`sudo /opt/bitnami/bncert-tool`
-2.	v Domain list napíšeme obě dvě adresy s „www“ i bez „www.“
+2.	v Domain list napíšeme adresu s „www“, poté se nás zeptá na adresu bez „www“, kterou poté taky napíšeme. (Nefunguje podle textu psaného v průvodci s instalací, toho si nevšímejte.)
 3.	Enable http to HTTPS redirection dáme „y“
 4.	Enable non-www to www redirection dáme „y“
 5.	Enable ww to non-www redirection dáme „n“
@@ -103,5 +104,6 @@ Toto jsou všechny kroky k tomu, abychom získaly SSL certifikát, který se ná
   - [Amazon Web Services - Základní nastavení účtu](AWS_nastaveni.md)
   - [Virtuální stroj v AWS](AWS_navod_VM.md)
   - [Statický web v S3 Bucket](AWS_navod_static_website.md)
+  - [Web postavený nad frameworem v EC2](AWS_navod4_CI4_web.md)
   - [Návod zprovoznění CMS Wordpress](AWS_navod_wordpress.md)
   - [Dokumentace](docs/Dokumentace.doc)
